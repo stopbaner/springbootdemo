@@ -1,4 +1,4 @@
-package com.shenzp.springbootdemo.springbootdemo;
+package com.shenzp.springbootdemo.springboottest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringbootdemoApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(SpringbootdemoApplication.class, args);
     }
 

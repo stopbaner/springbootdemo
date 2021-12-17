@@ -1,4 +1,4 @@
-package com.shenzp.springbootdemo.springbootdemo.postconstruct;
+package com.shenzp.springbootdemo.springboottest.postconstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

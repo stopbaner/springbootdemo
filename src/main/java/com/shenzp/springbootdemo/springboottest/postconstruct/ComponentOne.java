@@ -1,4 +1,4 @@
-package com.shenzp.springbootdemo.springbootdemo.postconstruct;
+package com.shenzp.springbootdemo.springboottest.postconstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 public class ComponentOne {
 
     public ComponentOne() {
-        logger.info("ComponentOne构造方法执行");
+        logger.info("ComponentOne构造器执行");
     }
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
