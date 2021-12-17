@@ -13,19 +13,23 @@ SpringBoot读取配置文件的优先级为：
 第四、项目内部的classpath同级放properties文件是最低优先级，是在classpath下直接放配置文件。
 springboot默认是优先读取它本身jar包同级目录下的一个config/application.properties 文件的。
 在项目内src/main/resources 文件夹下创建的application.properties 文件的优先级是最低的
-自定义配置文件：java -jar myproject.jar --spring.config.location=classpath:/default.properties,classpath:/override.properties或者java -jar -Dspring.config.location=D:\config\config.properties springbootrestdemo-0.0.1-SNAPSHOT.jar 
-代码指定加载：@SpringBootApplication
+自定义配置文件：
+> java -jar myproject.jar --spring.config.location=classpath:/default.properties,classpath:/override.properties或者java -jar -Dspring.config.location=D:\config\config.properties springbootrestdemo-0.0.1-SNAPSHOT.jar 
+> 
+代码指定加载： 
+> @SpringBootApplication
        @PropertySource(value={"file:config.properties"})
        public class SpringbootrestdemoApplication {
-       
            public static void main(String[] args) {
                SpringApplication.run(SpringbootrestdemoApplication.class, args);
            }
        }
-Profile不同环境读取不同配置
-不同环境的配置设置一个配置文件，例如：
+> 
+Profile不同环境读取不同配置，不同环境的配置设置一个配置文件，例如：
 dev环境下的配置配置在application-dev.properties中；
 prod环境下的配置配置在application-prod.properties中。
 在application.properties中指定使用哪一个文件，spring.profiles.active = dev，也可以启动时指定，java -jar myproject.jar --spring.profiles.active = prod
 
 4. 约定大于配置，除了自己修改的配置，其余配置默认使用springboot自动装配的配置
+
+5. ApplicationListener监听器用来实现对业务的监听
