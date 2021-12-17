@@ -11,11 +11,12 @@ import org.springframework.stereotype.Component;
  * description:自定義監聽器
  */
 @Component
-public class MyApplicationListener implements ApplicationListener {
+public class MyApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
     private Logger logger= LoggerFactory.getLogger(this.getClass());
     @Override
-    public void onApplicationEvent(ApplicationEvent event) {
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        logger.info("執行MyApplicationListener");
         if(event instanceof ContextRefreshedEvent){
             logger.info("ContextRefreshedEvent:{}",event);
         }
