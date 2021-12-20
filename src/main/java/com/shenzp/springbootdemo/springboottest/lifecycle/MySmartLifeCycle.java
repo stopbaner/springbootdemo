@@ -13,7 +13,15 @@ public class MySmartLifeCycle implements SmartLifecycle {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private volatile Boolean isStop = false;
+    /**
+     * Java volatile
+     *     对变量的写操作不依赖于当前值
+     *     该变量没有包含在具有其他变量的不变式中
+     *     第一个条件就是不能是自增自减等操作，上文已经提到volatile不保证原子性。
+     *     第二个条件我们来举个例子它包含了一个不变式 ：下界总是小于或等于上界
+     *     多线程读取，立即可见，会促使单个线程的缓存失效
+     */
+    private  Boolean isStop = false;
 
     /**
      * 如果该`Lifecycle`类所在的上下文在调用`refresh`时,希望能够自己自动进行回调，则返回`true`,
