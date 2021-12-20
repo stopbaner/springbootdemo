@@ -6,7 +6,7 @@ import org.springframework.context.SmartLifecycle;
 import org.springframework.stereotype.Component;
 
 /**
- * SmartLifecycle自动执行
+ * SmartLifecycle自动执行通过isAutoStartup()控制
  */
 @Component
 public class MySmartLifeCycle implements SmartLifecycle {
