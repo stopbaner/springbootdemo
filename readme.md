@@ -1,5 +1,5 @@
 1. @PostConstruct作用:
-@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次。PostConstruct在构造函数之后执行，init（）方法之前执行。该注解的方法在整个Bean初始化中的执行顺序：Constructor(构造方法) -> @Autowired(依赖注入) -> @PostConstruct(注释的方法)
+@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次。PostConstruct在构造函数之后执行，init（）方法之前执行。该注解的方法在整个Bean初始化中的执行顺序：Constructor(构造方法) -> @Autowired(依赖注入) -> @PostConstruct(注释的方法),轻量级逻辑放在postConstruct中执行，耗时较长可使用异步线程执行，初始化操作放在runner中执行
 
 2. CommandLineRunner或ApplicationRunner的作用和区别:
 平常开发中有可能需要实现在项目启动后执行的功能，SpringBoot提供的一种简单的实现方案就是添加一个model并实现CommandLineRunner或ApplicationRunner接口，实现功能的代码放在实现的run方法中,SpringBoot在项目启动后会遍历所有实现CommandLineRunner或ApplicationRunner的实体类并执行run方法，如果需要按照一定的顺序去执行，那么就需要在实体类上使用一个@Order注解（或者实现Order接口）来表明顺序,@Order 注解的执行优先级是按value值从小到大顺序。
@@ -34,4 +34,7 @@ prod环境下的配置配置在application-prod.properties中。
 
 5. ApplicationListener监听器用来实现对业务的监听
 
-6. 
+6. lifeCycle与smasrtLifeCycle:
+lifeCycle在调用AbstractApplicationContext#start方法或者显式调用后生效，smartLifeCycle自动生效
+
+7. 
