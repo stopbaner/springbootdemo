@@ -20,9 +20,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 @EnableAsync
 public class AsyncComponentConfiger {
     private Logger logger= LoggerFactory.getLogger(this.getClass());
-    @Bean
+    @Bean(name="asyncComponentExecutor")
     public Executor asyncComponentExecutor(){
-        logger.info("asyncComponentExecutor执行");
+        logger.info("asyncComponentExecutor执行,当前线程为{}",Thread.currentThread().getName());
         ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();
         //设置核心线程数
         executor.setCorePoolSize(4);

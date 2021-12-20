@@ -33,3 +33,5 @@ prod环境下的配置配置在application-prod.properties中。
 4. 约定大于配置，除了自己修改的配置，其余配置默认使用springboot自动装配的配置
 
 5. ApplicationListener监听器用来实现对业务的监听
+
+6. 
