@@ -6,3 +6,9 @@ server:
     include-exception: true
     include-stacktrace: ALWAYS
     include-message: ALWAYS
+
+address:
+  上海市浦东新区
+
+age:
+  90
