@@ -3,6 +3,7 @@ package com.shenzp.springbootdemo.springboottest.postconstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
@@ -16,13 +17,13 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @修改人和其它信息
  */
 
-@Component
+@Configuration
 @EnableAsync
 public class AsyncComponentConfiger {
-    private Logger logger= LoggerFactory.getLogger(this.getClass());
+   private Logger logger= LoggerFactory.getLogger(this.getClass());
     @Bean(name="asyncComponentExecutor")
     public Executor asyncComponentExecutor(){
-        logger.info("asyncComponentExecutor执行,当前线程为{}",Thread.currentThread().getName());
+
         ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();
         //设置核心线程数
         executor.setCorePoolSize(4);
@@ -31,7 +32,7 @@ public class AsyncComponentConfiger {
         //最大线程数为当前cpu核数*2
         executor.setMaxPoolSize(Runtime.getRuntime().availableProcessors()*2);
         //设置线程队列大小
-        executor.setQueueCapacity(10000);
+        executor.setQueueCapacity(100);
         //设置线程名前缀
         executor.setThreadNamePrefix("aysncComponent-");
         //设置线程池拒绝策略，默认为abortPolicy
@@ -42,6 +43,7 @@ public class AsyncComponentConfiger {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
         //初始化线程池
         executor.initialize();
+        logger.info("线程池初始化完毕");
         return executor;
     }
 

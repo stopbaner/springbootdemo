@@ -23,7 +23,9 @@ public class ComponentOne {
     @PostConstruct
     @Async("asyncComponentExecutor")
     public void method() throws InterruptedException {
-        Thread.sleep(1000);
+        System.out.println(Thread.currentThread().getName());
+        //Thread.sleep(1000);
         logger.info("ComponentOne构造器执行完毕，注入完毕，开始执行postconstruct标注的方法");
+        logger.info("asyncComponentExecutor执行,当前线程为{}",Thread.currentThread().getName());
     }
 }
