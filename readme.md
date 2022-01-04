@@ -38,3 +38,7 @@ prod环境下的配置配置在application-prod.properties中。
 lifeCycle在调用AbstractApplicationContext#start方法或者显式调用后生效，smartLifeCycle可以配置start方法自动生效
 
 7. bean实现InitializingBean可以在注入完成后立刻实现某些操作
+
+8. springboot执行顺序和原理:
+   - @SpringBootApplication标注程序入口
+   - 构造SpringApplication对象：构造函数中调用initialize方法，初始化SpringApplication对象的成员变量sources，webEnvironment，initializers，listeners，mainApplicationClass。sources的赋值比较简单，就是我们传给SpringApplication.run方法的参数。
