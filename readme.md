@@ -42,3 +42,7 @@ lifeCycle在调用AbstractApplicationContext#start方法或者显式调用后生
 8. springboot执行顺序和原理:
    - @SpringBootApplication标注程序入口
    - 构造SpringApplication对象：构造函数中调用initialize方法，初始化SpringApplication对象的成员变量sources，webEnvironment，initializers，listeners，mainApplicationClass。sources的赋值比较简单，就是我们传给SpringApplication.run方法的参数。
+
+9. 堆内存：（Eden区80%，from survivor区10%，to survivor区10%）
+
+10. 类加载器：bootstrap ClassLoader，extention ClassLoader，APPClassLoader。双亲委派机制先判断class有没有加载成功，没有就想上递归到最上层类加载器
