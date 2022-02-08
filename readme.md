@@ -46,3 +46,5 @@ lifeCycle在调用AbstractApplicationContext#start方法或者显式调用后生
 9. 堆内存：新生代（Eden区80%，from survivor区10%，to survivor区10%），占堆内存的三分之一；老年代，占堆内存的三分之二
 
 10. 类加载器：bootstrap ClassLoader，extention ClassLoader，APPClassLoader。双亲委派机制先判断class有没有加载成功，没有就想上递归到最上层类加载器
+
+11. 垃圾收集算法：标记清除，复制，标记整理，分代收集
